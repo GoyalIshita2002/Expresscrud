@@ -1,0 +1,14 @@
+{
+  "development": {
+    "username": "johndoe",
+    "password": "randompassword",
+    "database": "crudpractice",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "postgresql://johndoe:randompassword@localhost:5432/crudpractice?schema=public",
+    "dialect": "postgres"
+  }
+}
