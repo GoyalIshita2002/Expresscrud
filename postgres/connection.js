@@ -3,10 +3,21 @@ import { UserModel } from "../Model/user.js";
 import { configDotenv } from "dotenv";
 let user = null;
 const connection = async ()=>{
-    const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
-        host: DB_HOST,
-        dialect: 'postgres' 
-      });
+  let sequelize;
+
+  if (process.env.DB_URL) {
+    sequelize = new Sequelize(process.env.DB_URL);
+  } else {
+    sequelize = new Sequelize(
+      process.env.DB_NAME,
+      process.env.DB_USER,
+      process.env.DB_PW,
+      {
+        host: 'localhost',
+        dialect: 'postgres',
+      },
+    );
+  }
 
       try {
         await sequelize.authenticate();
@@ -23,5 +34,4 @@ export{
     connection,
     user
 }
-
 
