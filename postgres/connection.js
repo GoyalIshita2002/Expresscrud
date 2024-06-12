@@ -1,10 +1,10 @@
 import { Sequelize } from "sequelize";
 import { UserModel } from "../Model/user.js";
-
+import { configDotenv } from "dotenv";
 let user = null;
 const connection = async ()=>{
-    const sequelize = new Sequelize('crudpractice', 'johndoe', 'randompassword', {
-        host: 'localhost',
+    const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+        host: DB_HOST,
         dialect: 'postgres' 
       });
 

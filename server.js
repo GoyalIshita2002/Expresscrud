@@ -1,6 +1,7 @@
 import express from "express"
 import { connection } from "./postgres/connection.js";
 import router from "./view/router.js";
+import 'dotenv/config';
 
 const app = express();
 const PORT = 8000;
